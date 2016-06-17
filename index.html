@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lesson 1</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="MyController as myCtrl">
+	<div class="mBox" ng-class="myCtrl.changeColor.background">
+		Default <input type="radio" 
+						ng-value="" 
+						ng-model="myCtrl.changeColor" 
+						name="color"
+					/> 
+		Blue <input type="radio" 
+					ng-value="myCtrl.changeBlue" 
+					ng-model="myCtrl.changeColor" 
+					name="color"
+				/> 
+
+		Green <input type="radio" 
+					 ng-value="myCtrl.changeGreen" 
+					 ng-model="myCtrl.changeColor"
+					 name="color"
+				/> 
+
+		Yellow <input type="radio" 
+					  ng-value="myCtrl.changeYellow" 
+					  ng-model="myCtrl.changeColor"
+					  name="color"/> 
+
+		Orange <input type="radio" 
+					  ng-value="myCtrl.changeOrange" 
+					  ng-model="myCtrl.changeColor"
+					  name="color"/> 
+
+		Purple <input type="radio" 
+					  ng-value="myCtrl.changePurple" 
+					  ng-model="myCtrl.changeColor"
+					  name="color"/>
+		
+		<div class="fBox" ng-class="myCtrl.changeColor.box1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+		
+		<div class="lBox" ng-class="myCtrl.changeColor.box2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+		
+	</div>
+</div>
+
+</body>
+</html>

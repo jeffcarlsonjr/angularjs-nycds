@@ -1,0 +1,48 @@
+
+.mBox{
+	width: 700px;
+	margin: 30px auto;
+	border: 1px #ccc solid;
+	padding: 20px;
+}
+
+.fBox{
+	width: 90%;
+	height: 100px;
+	margin: 30px;
+	border: 1px #ccc solid;
+	padding: 5px;
+}
+
+.lBox{
+	width: 90%;
+	height: 100px;
+	margin: 30px;
+	border: 1px #ccc solid;
+	padding: 5px;
+}
+
+.blueBack{
+	background: blue;
+	color: white;
+}
+
+.greenBack{
+	background: green;
+	color: yellow;
+}
+
+.orangeBack{
+	background: orange;
+	color: black;
+}
+
+.yellowBack{
+	background: yellow;
+	color: purple;
+}
+
+.purpleBack{
+	background: purple;
+	color: white;
+}
