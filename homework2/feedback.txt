@@ -1,0 +1,24 @@
+Nicely done Jeff.  Here are some notes:
+
+-  You can link the up model directly to the checkbox, you don't need the additional step of calling a function...so this...
+
+	<input type="radio" ng-click="Ctrl.openFiles()"/> 
+
+			can simply be 
+
+	<input type="radio" ng-model="Ctrl.showHideFolder"/> 
+
+	And angular will take care of flipping the value between true and false.
+
+
+-  Question to think about...What would you change if we had 100 Folders instead of 3?
+
+-  In terms of structuring your data, the less things you have to work with the easier it will be on you.
+
+	So instead of 3 arrays of files what if you had 1 array of folders and each folder had itself an array of files
+
+- Check out the solutions for how to use ng-value for the folder radio buttons so that you don't have to have those if statements.
+
+Todo's portions is nicely done.  Keep in mind you have that $index variable you can use inside of an ng-repeat, so you won't need to keep track of the count.
+
+Overall, great job.
