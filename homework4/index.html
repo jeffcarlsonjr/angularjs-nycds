@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Homework 4</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="services.js"></script>
+<style>
+
+li { font-size: 16px; font-weight: bold; padding-bottom: 6px}
+</style>
+</head>
+
+<body ng-app="myApp">
+
+<div class="container" ng-controller="MusicController as MCtrl">
+
+	<div class="col-lg-12" >
+    	<div class="col-lg-6">
+        <h2>User Info</h2>
+        	<label>User Name</label>
+            <input type="text" ng-model="MCtrl.user.name" class="form-control"/>
+            <label>User Age</label>
+            <input type="text" ng-model="MCtrl.user.age" class="form-control" />
+        </div>
+        <div class="col-lg-6">
+        <h2>Age Appropriate</h2>
+        <input type="radio" ng-model="MCtrl.user.required" value="clean" ng-change="MCtrl.selfObject()" ng-click="showMusic = !showMusic"/>&nbsp;Clean &nbsp;
+        <input type="radio" ng-model="MCtrl.user.required" value="explicit" ng-change="MCtrl.selfObject()" ng-disabled='MCtrl.user.age < 14' />&nbsp;Explicit &nbsp;        
+        </div>
+
+    </div>
+
+    <div class="col-lg-12">
+        <br/>
+    <br/>
+    	<div class="col-lg-6">
+       <!-- <a ng-click="MCtrl.showRock($index)> -->
+        <ul style="list-style: none">
+        	<li><a ng-click="MCtrl.showMusic('rock')"><h4>{{MCtrl.rock.type}}</h4></a></li>
+        	<li><a ng-click="MCtrl.showMusic('pop')"><h4>{{MCtrl.pop.type}}</h4></a></li>
+        	<li><a ng-click="MCtrl.showMusic('rap')"><h4>{{MCtrl.rap.type}}</h4></a></li>
+        </ul>
+        	
+        </div>
+        <div class="col-lg-6">
+
+        	<div ng-show="MCtrl.show1">
+        	<ul style="list-style: none">
+            	 <li ng-repeat="song in MCtrl.rock.songs">
+            	 <input type="checkbox" ng-model="MCtrl.rock.songs.name[$index]" />
+            	 {{song.name}}
+            	 </li>
+        	</ul>
+            </div>
+            <div ng-hide="MCtrl.show2">
+        	<ul style="list-style: none">
+            	 <li ng-repeat="song in MCtrl.pop.songs">
+            	 <input type="checkbox" ng-model="MCtrl.pop.songs.name[$index]"/>
+            	 {{song.name}}
+            	 </li>
+        	</ul>
+            </div>
+            <div ng-hide="MCtrl.show3">
+        	<ul style="list-style: none">
+            	 <li ng-repeat="song in MCtrl.rap.songs">
+            	 <input type="checkbox" ng-model="MCtrl.rap.songs.name[$index]"/>
+            	 {{song.name}}
+            	 </li>
+        	</ul>
+            </div>
+        
+        </div>
+        
+    </div>
+    <div class="col-lg-12">
+    <br/><br/>
+    	<button class="btn btn-primary" ng-click="MCtrl.showRock()">Submit</button>
+
+    </div>
+</div>
+
+</body>
+</html>
