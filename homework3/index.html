@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Homework 3</title>
+	<link type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="services.js"></script>
+	<style type="text/css">
+		body{
+			padding: 50px;
+		}
+	</style>
+</head>
+<body ng-app="MyApp">
+	<div class="container" ng-controller="GradeController as gradeCtrl">
+		<div class="row">
+			<div class="col-lg-6">
+			<h3>Student Information</h2>
+			<form>
+				<div class="col-lg-5">
+					<input type="text" ng-model='gradeCtrl.assign.name' class="form-control" placeholder="Assignment Name">
+				</div>
+				<div class="col-lg-5">
+					<input type="text" ng-model='gradeCtrl.assign.grade' class="form-control" placeholder="Assignment Grade">
+				</div>
+				<div class="col-lg-2">
+					<button ng-click="gradeCtrl.addAssignment()">Add</button>
+				</div>
+			</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<h3>Grade Information</h3>
+				<div class="col-log-12">
+					<div class="col-lg-5"><h5>Assignment Name</h5></div>
+					<div class="col-lg-7"><h5>Assignment Grade</h5></div>
+				</div>
+
+				<div class="col-lg-12" ng-repeat="assign in gradeCtrl.student.assignment" style="margin-bottom: 10px">
+					<div class="col-lg-5">{{assign.name}}</div>
+					<div class="col-lg-2">
+						<button ng-click="gradeCtrl.remove($index)">Remove</button>
+					</div>
+					<div class="col-lg-5">{{assign.grade}}</div>
+				</div>
+			</div>
+			<div class="col-lg-6" >
+				<h2>Dynamic Grader</h2>
+				<div class="col-lg-12" style="border:1px #ccc solid">
+					<div class="col-lg-8">
+						<h4>GRADE</h4>
+					</div>
+					<div class="col-lg-4">
+						<h4><span ng-bind="gradeCtrl.student.average"></span></h4>
+					</div>
+				</div>
+				<div class="col-lg-12" style="border-left:1px #ccc solid; border-right:1px #ccc solid">
+					<div class="col-lg-8">
+						<h4>LETTER GRADE</h4>
+					</div>
+					<div class="col-lg-4">
+						<h4><span ng-bind="gradeCtrl.student.letterGrade"></span></h4>
+					</div>
+				</div>
+				<div class="col-lg-12" style="border:1px #ccc solid">
+					<div class="col-lg-8">
+						<h4>GRADE</h4>
+					</div>
+					<div class="col-lg-4">
+						<h4><span ng-bind="gradeCtrl.student.pass"></span></h4>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
