@@ -1,0 +1,11 @@
+<div class="container" ng-controller="MainController as Ctrl">
+	<div class="col-xs-6">
+		<label>Address</label>
+		<input type="text" name="" class="form-control" ng-model="Ctrl.address" ng-keyup="Ctrl.getAddress()">
+
+		<label>Results: {{Ctrl.address}}</label>
+		<ul>
+		<li ng-repeat="listAddress in Ctrl.list">{{listAddress.formatted_address}}</li>
+		</ul>
+	</div>
+</div>
