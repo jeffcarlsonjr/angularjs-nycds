@@ -1,0 +1,18 @@
+Looking good Jeff.  Some points on simplification below.
+
+- The average/grade/pass need to be calculated each time an assignment is added.  So rather than call it from the controller I would call it from the add/remove assignment funcions.
+
+	eg:
+
+		Grades.prototype.addAss = function(name,grade){
+			this.assignment.push({name: name, grade: grade})
+			this.calcStats();
+		}
+
+		Grades.prototype.calcStats = function(){
+			this.average = Help_Grader.gradeSum(this.assignment);
+			this.letterGrade = Help_Grader.gradeLetter(this.average);
+			this.pass = Help_Grader.passFail(this.grade)
+		}
+
+Other than that I don't have much.  Great Job!

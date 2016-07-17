@@ -1,0 +1,26 @@
+I think we went over a few things in class, but here's what I have for this assignment.
+
+- Those genre definitions should be moved out of the controller.
+- You shouldn't need to have booleans to indicate what should be showed, angular should just update the view whenever a new genre is selected.  You can do this with radio buttons, but if you want to use links you can use and ng-click and set a single value let's call it "selectedGenre".  To do this it will make things easier to move the genres into an array and just ng-repeat over them.  Take a look at the solutions and let me know if you have any questions.
+
+- on setting the checkbox you should just be able to use the "song" object
+
+	eg: instead of MCtrl.rap.songs.name[$index]
+
+		<ul style="list-style: none">
+	    	 <li ng-repeat="song in MCtrl.rap.songs">
+	    	 <input type="checkbox" ng-model="MCtrl.rap.songs.name[$index]"/>
+	    	 {{song.name}}
+	    	 </li>
+		</ul>
+
+	you can just say:
+
+		<ul style="list-style: none">
+	    	 <li ng-repeat="song in MCtrl.rap.songs">
+	    	 <input type="checkbox" ng-model="song.isChecked"/>
+	    	 {{song.name}}
+	    	 </li>
+		</ul>
+
+The submit button wasn't working for me.  
