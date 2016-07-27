@@ -1,0 +1,21 @@
+
+<div class="container">
+<h2>Home Page</h2>
+
+{{ctrl.hi}}
+
+<div ui-view>
+	<div >
+		<label>Enter Zip Code</label><br/>
+		<input type="text" ng-model="ctrl.zipcode"> <button class="btn btn-primary" ng-click="ctrl.setZip()">Add</button>
+	<ol>
+		<li ng-repeat='list in ctrl.events' ng-click="ctrl.goToEvent(list.id)">
+			<span ng-bind="list.eventName"></span>
+		</li>
+	</ol>
+		
+	</div>
+
+</div>
+
+</div>

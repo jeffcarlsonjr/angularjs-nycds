@@ -1,0 +1,21 @@
+
+<div class="container">
+<h2>Welcome to {{ctrl.eventList.eventName}}</h2>
+
+	<p><label>Event:</label>
+	<span ng-bind="ctrl.eventList.eventName"></span></p>
+	<p><label>Venue:</label>
+	<span ng-bind="ctrl.eventList.eventVenueName"></span>
+	<p><label>Phone:</label>
+	{{ctrl.eventList.eventVenuePhone | tel}}
+	<p><label>Website:</label>
+	<a href="ctrl.eventList.eventWebsite"><span ng-bind="ctrl.eventList.eventWebsite"></span></a>
+	<p><label>Addresss:</label><br/>
+	<span ng-bind="ctrl.eventList.eventAddress"></span><br/>
+	<span ng-bind="ctrl.eventList.eventCity"></span> <span ng-bind="ctrl.eventList.eventState"></span>, <span ng-bind="ctrl.eventList.eventZip"></span>
+	<p><label>Description:</label><br/>
+	<span ng-bind="ctrl.eventList.eventDesc"></span>
+	<br/>
+	<button class="btn btn-primary" ng-click="ctrl.goToMap(ctrl.eventList.eventAddress,ctrl.eventList.eventZip)">See Map</button>
+</div>
+
