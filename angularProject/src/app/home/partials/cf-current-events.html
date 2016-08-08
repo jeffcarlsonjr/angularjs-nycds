@@ -1,0 +1,9 @@
+
+
+<li ng-repeat='list in ctrl.events'" class="currEvent">
+	<label>Event Name:</label> <span ng-bind="list.eventName"></span> <br/>
+	<label>Event Starts:</label> <span ng-bind="list.eventStart"></span> <br/>
+	<label>Description: </label> {{list.eventDesc | shortString}}... <br/>
+	<button class="btn btn-primary right" ng-click="ctrl.goToEvent(list.id, ctrl.zipcode)">Show Full Event</button>
+</li>
+

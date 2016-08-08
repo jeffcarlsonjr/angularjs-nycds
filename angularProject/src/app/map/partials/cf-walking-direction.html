@@ -1,0 +1,7 @@
+<div class="col-lg-6">
+    	<h4><a ng-click="ctrl.showWalking = !ctrl.showWalking">Walking Directions?</a></h4>
+	    <div ng-repeat="step in ctrl.walk" ng-hide="ctrl.showWalking">
+	    	<p ng-bind-html="step.html_instructions | unsafe"></p>
+	    	</div>
+	    </div>
+    </div>

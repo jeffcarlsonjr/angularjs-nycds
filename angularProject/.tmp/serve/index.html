@@ -1,0 +1,88 @@
+<!doctype html>
+<html ng-app="template">
+  <head>
+    <meta charset="utf-8">
+    <title>template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/angular-toastr/dist/angular-toastr.css" />
+    <link rel="stylesheet" href="../bower_components/animate.css/animate.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp/serve,src}) styles/app.css -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="app/index.css">
+    <!-- endinject -->
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="container">
+        <div class="col-lg-3">
+            <a href="/"><img src="/assets/images/logoWP.png"/></a>
+        </div>
+        <div class="col-lg-6">
+            <div ui-view></div>
+        </div>
+        <div class="col-lg-3">&nbsp;</div>
+    </div>
+
+    <!-- build:js(src) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../bower_components/angular-resource/angular-resource.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="../bower_components/malarkey/dist/malarkey.min.js"></script>
+    <script src="../bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="../bower_components/moment/moment.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../bower_components/lodash/lodash.js"></script>
+    <script src="../bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
+    <!-- inject:js -->
+    <script src="app/map/map.module.js"></script>
+    <script src="app/map/services/mapservice.js"></script>
+    <script src="app/map/filter/mapfilter.js"></script>
+    <script src="app/map/factories/mapFactories.js"></script>
+    <script src="app/map/directives/map.directives.js"></script>
+    <script src="app/map/controller/mapcontroller.js"></script>
+    <script src="app/home/home.module.js"></script>
+    <script src="app/home/services/homeservice.js"></script>
+    <script src="app/home/filter/main.filter.js"></script>
+    <script src="app/home/directives/main.directives.js"></script>
+    <script src="app/home/controller/homecontroller.js"></script>
+    <script src="app/event/event.module.js"></script>
+    <script src="app/event/services/eventservice.js"></script>
+    <script src="app/event/filter/eventfilter.js"></script>
+    <script src="app/event/directives/event.directives.js"></script>
+    <script src="app/event/controller/eventcontroller.js"></script>
+    <script src="app/index.module.js"></script>
+    <script src="app/components/navbar/navbar.directive.js"></script>
+    <script src="app/addEvent/addEvent.module.js"></script>
+    <script src="app/addEvent/services/addEventservices.js"></script>
+    <script src="app/addEvent/controller/addEvent.controller.js"></script>
+    <script src="app/index.run.js"></script>
+    <script src="app/index.route.js"></script>
+    <script src="app/index.constants.js"></script>
+    <script src="app/index.config.js"></script>
+    <!-- endinject -->
+
+    <!-- inject:partials -->
+    <!-- angular templates will be automatically converted in js and inserted here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
+  </body>
+</html>
