@@ -8,7 +8,7 @@
 
       $stateProvider
       .state('home', {
-        url: '/home',
+        url: '/',
         templateUrl: 'app/home/partials/home.html',
         controller: 'HomeController as ctrl'
       })
@@ -18,10 +18,15 @@
         controller: 'EventController as ctrl'
       })
      .state('map', {
-        url: '/map',
+        url: '/map/:addr&:zip&:loc',
         templateUrl: 'app/map/partials/map.html',
         controller: 'MapController as ctrl'
       })
+     .state('addEvent',{
+        url:'/addEvent',
+        templateUrl: 'app/addEvent/partials/addEvent.html',
+        controller: 'AddEventController as ctrl'
+     })
       // .state('contacts', {
       //   url: '/contacts',
       //   template:

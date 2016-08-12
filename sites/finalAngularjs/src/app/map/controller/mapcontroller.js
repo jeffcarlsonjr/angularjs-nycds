@@ -1,44 +1,60 @@
 angular.module('MyApp.Map')
 
-.service('ServiceMap',function($resource){
+.controller("MapController", function($stateParams,ServiceMap,Address,ServiceEventGet){
 	var self = this;
-	// var headers = {
-	// 			'Access-Control-Allow-Origin' : '*',
-	// 			'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS, PUT',
-	// 			'Content-Type': 'application/json',
-	// 			'Accept': 'application/json'
-	// 		};
-	// var myGoogleMap = $resource('http://maps.googleapis.com/maps/api/js?key=AIzaSyAPp39YYk0X0gw4ebgaoFTL9YeT8gcarSU',{}
-	// 	,{
-	// 		eventLocation: {
-	// 			method: 'GET',
-	// 			headers: headers
-	// 		}
-	// 	});
+	self.showSubway = true;
+	self.showWalking = true;
+	self.event = $stateParams.addr+'+'+$stateParams.zip;
+	self.location = $stateParams.loc;
+	self.address = new Address();
 
-	// self.getLocation = function(lat,lng)
-	// {
-	// 	return myGoogleMap.eventLocation({
-	// 		lat: lat,
-	// 		lng: lng
-	// 	}).$promise
-	// }
+	ServiceMap.eventLatLng(self.event)
+	.then(function onSuccess(response){
+		
+		self.eventAdd = new Address(response['results'][0]['geometry']['location']['lat'],response['results'][0]['geometry']['location']['lng']);
+		self.evLat = response['results'][0]['geometry']['location']['lat'];
+		self.evLng = response['results'][0]['geometry']['location']['lng'];
+		self.evLoc = String(self.evLat +', '+self.evLng);
+		ServiceMap.locationLatLng(self.location)
+		.then(function onSuccess(response){
 
-})
+			self.location = new Address(response['results'][0]['geometry']['location']['lat'],response['results'][0]['geometry']['location']['lng'])
+			self.address = [self.location,self.eventAdd];
+			for (i = 0; i < self.address.length; i++){
+				ServiceMap.createMarker(self.address[i]);
+			}
+			self.lat = response['results'][0]['geometry']['location']['lat'];
+			self.lng = response['results'][0]['geometry']['location']['lng'];
+			self.loc = String(self.lat +', '+ self.lng);
 
-.controller("MapController", function(){
-	var self = this;
-	self.lat = 56.162939;
-	self.long = 10.203921;
+			//self.latLngInDegr = [[self.lat, self.lng],[ self.evLat, self.evLng]];
+			//self.center = ServiceMap.getLatLngCenter(self.latLngInDegr);
+
+				ServiceMap.travelDirections(self.loc, self.evLoc,'transit')
+				.then(function onSuccess(response){ 
+					self.subway = response['routes'][0]['legs'][0]['steps'];
+				},function error(error){
+					console.log(error)
+				});
+
+				ServiceMap.travelDirections(self.loc, self.evLoc,'walking')
+				.then(function onSuccess(response){ 
+					self.walk = response['routes'][0]['legs'][0]['steps'];
+				},function error(error){
+					console.log(error)
+				})
+
+
+		}, function error(error){
+			console.log(error);
+		});
+
+		}, function error(error){
+			console.log(error);
+	});
+
+
+
 
 	
-		self.map = {
-                center: {
-                        latitude: self.lat,
-                        longitude: self.long
-                },
-                zoom: 8
-                };
-	
-	
-})
+ })

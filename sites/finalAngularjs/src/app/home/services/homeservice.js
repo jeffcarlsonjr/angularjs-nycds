@@ -5,6 +5,7 @@ angular.module('MyApp.Home')
 
 	var self = this;
 
+
 	var myLatLongObject = $resource('http://maps.googleapis.com/maps/api/geocode/json',{},
 	{
 		getLatLong: {}
@@ -20,6 +21,16 @@ angular.module('MyApp.Home')
 		}
 	});
 
+	var lastWeekEventObject = $resource('/ajax/functions/showLastWeeks.php',{
+
+	},
+	{
+		getLastWeek: {
+			method: 'GET',
+			isArray: true
+		}
+	});
+
 	self.getEvents = function(lat,long){
 		return myEventObject.getAllEvents({
 			lat: lat,
@@ -28,11 +39,16 @@ angular.module('MyApp.Home')
 
 	};
 
-	self.getZips = function(zip){
+	self.getZips = function(latlng){
 		return myLatLongObject.getLatLong({
-			address: zip
+			latlng: latlng
 		}).$promise
 	
+	};
+
+	self.lastWeek = function(){
+		return lastWeekEventObject.getLastWeek({}).$promise
 	}
+
 
 })

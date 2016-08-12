@@ -1,0 +1,10 @@
+
+ <div class="col-lg-6">
+    	<h4><a ng-click="ctrl.showSubway = !ctrl.showSubway">Subway Directions?</a></h4>
+	    <div ng-repeat="step in ctrl.subway" ng-hide="ctrl.showSubway">
+	    	
+	    	<div ng-repeat="subway in step.steps">
+	    		<p ng-bind-html="subway.html_instructions | unsafe"></p>
+	    	</div>
+	    </div>
+    </div>

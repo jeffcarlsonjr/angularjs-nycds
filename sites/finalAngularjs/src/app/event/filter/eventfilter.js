@@ -11,7 +11,7 @@ angular.module('MyApp.Event')
             return tel;
         }
 
-        var country, city, number;
+        var areaCode, number;
 
         switch (value.length) {
             case 1:
@@ -21,7 +21,7 @@ angular.module('MyApp.Event')
                 break;
 
             default:
-                city = value.slice(0, 3);
+                areaCode = value.slice(0, 3);
                 number = value.slice(3);
         }
 
@@ -33,11 +33,13 @@ angular.module('MyApp.Event')
                 number = number;
             }
 
-            return ("(" + city + ") " + number).trim();
+            return ("(" + areaCode + ") " + number).trim();
         }
         else{
-            return "(" + city;
+            return "(" + areaCode;
         }
 
     };
 })
+
+
