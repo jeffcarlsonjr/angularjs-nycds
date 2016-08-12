@@ -1,0 +1,24 @@
+<p><label>Event:</label>
+<span ng-bind="ctrl.eventList.eventName"></span></p>
+
+<p><label>Venue:</label>
+<span ng-bind="ctrl.eventList.eventVenueName"></span>
+
+<p><label>Event Starts:</label>
+<span ng-bind="ctrl.eventList.eventStart"></span>
+
+<p><label>Phone:</label>
+<span ng-bind="ctrl.eventList.eventVenuePhone | tel"></span>
+
+<p><label>Website:</label>
+<a ng-href="{{ctrl.eventList.eventWebsite}}" target="_blank"><span ng-bind="ctrl.eventList.eventWebsite"></span></a>
+
+<p><label>Addresss:</label><br/>
+<span ng-bind="ctrl.eventList.eventAddress"></span><br/>
+<span ng-bind="ctrl.eventList.eventCity"></span> <span ng-bind="ctrl.eventList.eventState"></span>, <span ng-bind="ctrl.eventList.eventZip"></span>
+
+<p><label>Description:</label><br/>
+<span ng-bind="ctrl.eventList.eventDesc"></span>
+
+<p>
+<button class="btn btn-primary" ng-click="ctrl.goToMap(ctrl.eventList.eventAddress,ctrl.eventList.eventZip,ctrl.locZip)">Show Location</button>

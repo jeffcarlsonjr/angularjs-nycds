@@ -1,0 +1,25 @@
+
+<div class="col-lg-12">
+<h2>Event Page</h2>
+
+
+<div ui-view>
+
+	<div>
+		<h4>Here are last weeks events:</h4>
+		<ol>
+			<cf-past-event></cf-past-event>
+		</ol>
+	</div>
+
+	<div >
+		<h4>We have you located in the {{ctrl.zipcode}} area and here are the events in your area:</h4>
+	<ol>
+		<cf-current-events></cf-current-events>
+	</ol>
+		
+	</div>
+
+</div>
+
+</div>
